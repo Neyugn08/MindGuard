@@ -1,0 +1,46 @@
+* {
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+}
+
+body {
+    display: inline-flex;
+    min-width: 340px;
+    flex-direction: column;
+    font-size: 14px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.seg-control {
+    display: flex;
+    padding: 3px;
+    gap: 2px;
+}
+
+.seg-btn {
+    flex: 1;
+    padding: 6px;
+    border: none;
+    background: transparent;
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: all 0.15s;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.seg-btn.active {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.seg-btn:hover:not(.active) { 
+    color: grey; 
+}

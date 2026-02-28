@@ -1,0 +1,55 @@
+{
+    "manifest_version": 3,
+    "name": "MindGuard",
+    "version": "1.0.0",
+    "description": "Protects users from dark patterns and manipulative UI using local NLP and behavioral analysis.",
+    "permissions": [
+        "storage",
+        "alarms",
+        "tabs",
+        "scripting",
+        "webNavigation",
+        "declarativeNetRequest",
+        "declarativeNetRequestFeedback",
+        "declarativeNetRequestWithHostAccess"
+    ],
+    "host_permissions": [
+        "<all_urls>"
+    ],
+    "background": {
+        "service_worker": "background/service-worker.js",
+        "type": "module"
+    },
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": [
+                "content-scripts/dom-capture.js",
+                "content-scripts/signal-detector.js",
+                "content-scripts/injector.js"
+            ],
+            "css": ["assets/injected-styles.css"],
+            "run_at": "document_idle",
+            "all_frames": true
+        }
+    ],
+    "action": {
+        "default_popup": "popup/popup.html",
+        "default_icon": "assets/MindGuard.png"
+    },
+    "declarative_net_request": {
+        "rule_resources": [
+            {
+                "id": "blocklist",
+                "enabled": true,
+                "path": "blocklist.json"
+            }
+        ]
+    },
+    "web_accessible_resources": [
+        {
+        "resources": ["assets/*"],
+        "matches": ["<all_urls>"]
+        }
+    ]
+}

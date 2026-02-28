@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindGuard</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <span class="logo-icon">🛡️</span>
+            <span>MindGuard</span>
+        </div>
+    </header>
+    <div class="section">
+        <div class="section-title">Settings</div>
+        <!--Sensitivity-->
+        <div class="section-title">Sensitivity</div>
+        <div class="seg-control" id="sensitivityControl" role="group" aria-label="Detection sensitivity">
+            <button class="seg-btn" data-val="low">Low</button>
+            <button class="seg-btn active" data-val="medium">Medium</button>
+            <button class="seg-btn" data-val="high">High</button>
+        </div>
+        <!--Intervention Mode-->
+        <div class="section-title">Intervention Mode</div>
+        <div class="seg-control" id="modeControl" role="group" aria-label="Intervention mode">
+            <button class="seg-btn" data-val="passive">Passive</button>
+            <button class="seg-btn active" data-val="warn">Warn</button>
+            <button class="seg-btn" data-val="delay">Delay</button>
+        </div>
+    </div>
+</body>
+</html>
