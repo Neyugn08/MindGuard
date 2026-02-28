@@ -4,6 +4,7 @@ function interference(risks) {
     let enabled = false;
     if (risks.confidence > RISK_THRESHOLD) enabled = true;
     if (enabled) {
+        console.log(risks);
         // Create warning banner
         const warning = document.createElement("div");
         warning.classList.add("warning");
@@ -21,7 +22,6 @@ function interference(risks) {
 
 chrome.runtime.onMessage.addListener((message, sender) => {
     if (message.type === "UI_changes") {
-        console.log(message.payload);
         interference(message.payload);
     }
 });
